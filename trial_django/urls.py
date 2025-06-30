@@ -16,12 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path , include 
-
+from django.urls import path, include 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('members/', include('members.urls')),  # Include the members app URLs
-    path('polls/' , include('polls.urls')),  # Include the polls app URLs , 
+     path('api-auth/', include('rest_framework.urls')),
+    path('polls/' , include('polls.urls')),  # Include the polls app URLs ,
+     path('snippets/', include('snippets.urls')), 
+     path('api/', include('polls.api_urls')),  # React will call this
     # path('polls/', include(('polls.urls', 'polls'), namespace='polls'))
 ]
 
